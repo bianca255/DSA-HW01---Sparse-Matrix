@@ -1,5 +1,5 @@
 const readline = require('readline');
-const output = require('./output');
+const rensponse = require('./response');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -16,16 +16,16 @@ const file1 = 'sample-inputs/samplefile4.txt';
 const file2 = 'sample-inputs/samplefile6.txt';
 
   try {
-    const samplefile2 = output.fromFile(file1);
-    const samplefile3 = output.fromFile(file2);
+    const matrixfile1 = response.fromFile(file1);
+    const matrixfile3 = response.fromFile(file2);
 
     let result;
     if (op == '1') {
-      result = samplefile2.add(samplefile3);
+      result = matrixfile1.add(matrixfile3);
     } else if (op == '2') {
-      result = samplefile2.subtract(samplefile3);
+      result = matrixfile1.subtract(matrixfile3);
     } else if (op == '3') {
-      result = samplefile2.multiply(samplefile3);
+      result = matrixfile1.multiply(matrixfile3);
     } else {
       console.log("Invalid option");
       rl.close();
