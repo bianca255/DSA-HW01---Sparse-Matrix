@@ -12,10 +12,9 @@ console.log("2 - Subtraction");
 console.log("3 - Multiplication");
 
 rl.question("Enter choice (1/2/3): ", function (op) {
-  const file1 = '../sample-inputs/samplefile4.txt';
-  const file2 = '../sample-inputs/samplefile6.txt';
-
-  try {
+ const file1 = './sample file/matrixfile1.txt';
+const file2 = './sample file/matrixfile3.txt';
+ try {
     const matrixfile1 = response.fromFile(file1);
     const matrixfile2 = response.fromFile(file2);
 
