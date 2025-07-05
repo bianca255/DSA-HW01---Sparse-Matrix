@@ -4,7 +4,7 @@ class response {
   constructor(rows = 0, cols = 0) {
     this.rows = rows;
     this.cols = cols;
-    this.data = {}; // i Used a nested object: data[row][col] = value
+    this.data = {}; // Nested object: data[row][col] = value
   }
 
   static fromFile(filePath) {
@@ -18,7 +18,7 @@ class response {
 
     let rows = parseInt(rowLine.slice(5));
     let cols = parseInt(colLine.slice(5));
-    const matrix = new output(rows, cols);
+    const matrix = new response(rows, cols);
 
     for (let i = 2; i < lines.length; i++) {
       let line = lines[i].trim();
@@ -53,7 +53,7 @@ class response {
       throw new Error("Matrix size mismatch for addition");
     }
 
-    const result = new output(this.rows, this.cols);
+    const result = new response(this.rows, this.cols);
     for (let r in this.data) {
       for (let c in this.data[r]) {
         result.setElement(+r, +c, this.getElement(+r, +c));
@@ -73,7 +73,7 @@ class response {
       throw new Error("Matrix size mismatch for subtraction");
     }
 
-    const result = new output(this.rows, this.cols);
+    const result = new response(this.rows, this.cols);
     for (let r in this.data) {
       for (let c in this.data[r]) {
         result.setElement(+r, +c, this.getElement(+r, +c));
@@ -93,7 +93,7 @@ class response {
       throw new Error("Matrix size mismatch for multiplication");
     }
 
-    const result = new output(this.rows, other.cols);
+    const result = new response(this.rows, other.cols);
     for (let i in this.data) {
       for (let k in this.data[i]) {
         if (!other.data[k]) continue;
